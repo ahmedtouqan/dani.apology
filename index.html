@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Dani</title>
+<meta name="description" content="A little something I made for you Dani, since i keep upsetting you.">
+<meta name="theme-color" content="#0D0A0C">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0D0A0C;color:#F7EEE9;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.75;min-height:100vh;min-height:100svh;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.page{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem}
+.inner{max-width:34rem;width:100%}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.15;margin-bottom:1.8rem}
+p{color:#B9AEB2;font-size:1.08rem;margin-bottom:1.3rem}
+p.k{color:#F7EEE9}
+.sign{margin-top:2.2rem;color:#D8B4BC}
+.small{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:#D8B4BC;margin-bottom:1rem}
+/* cover */
+#cover{text-align:center;transition:opacity .7s ease}
+#cover .inner{display:flex;flex-direction:column;align-items:center}
+#cover.out{opacity:0;pointer-events:none}
+#cover h1{margin-bottom:.6rem}
+#cover p{margin-bottom:2.2rem}
+button{font:inherit;color:#F7EEE9;background:rgba(216,180,188,.08);border:1px solid rgba(216,180,188,.4);border-radius:999px;min-height:48px;padding:.8rem 2rem;cursor:pointer;transition:background .3s,box-shadow .3s,transform .3s}
+button span{display:inline-block;transition:transform .3s}
+button:hover{background:rgba(216,180,188,.18);box-shadow:0 0 28px rgba(216,180,188,.2);transform:scale(1.03)}
+button:hover span{transform:translateX(5px)}
+button:focus-visible{outline:2px solid #D8B4BC;outline-offset:4px}
+/* message */
+#message{display:none}
+#message.show{display:flex}
+#message .inner > *{opacity:0;transform:translateY(10px);animation:in .9s ease forwards}
+#message .inner > *:nth-child(1){animation-delay:.2s}
+#message .inner > *:nth-child(2){animation-delay:.9s}
+#message .inner > *:nth-child(3){animation-delay:1.5s}
+#message .inner > *:nth-child(4){animation-delay:2.1s}
+#message .inner > *:nth-child(5){animation-delay:2.7s}
+.fade{animation:in .9s ease both}
+@keyframes in{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  #message .inner > *{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="page" id="cover">
+  <div class="inner">
+    <div class="small">For Dani</div>
+    <h1>Hey Dani...</h1>
+    <p>I made you something, hopefully you would like it.</p>
+    <button id="open" type="button">Open it <span>→</span></button>
+  </div>
+</div>
+
+<div class="page" id="message" aria-live="polite">
+  <div class="inner">
+    <h1>Hola ms Dani,<br>I'm sorry.</h1>
+    <p>I know that liking that story wasn't the right thing to do, especially knowing it could make you feel a certain way. I'm not going to make excuses, and I'm not going to tell you it wasn't a big deal.</p>
+    <p class="k">If it upset you, then it mattered. I should have thought about how you'd feel before I did it.</p>
+    <p>يارب يا داني تسامحيني ما بحب ازعلك والله انتي وحده تستاهل بس تكون مبسوطه وانتي معي بدي اخليكي اسعد انسان </p>
+<p>it wont happen again and i would do whatever makes you happy my apologies ma'am, i hope this make you forgive me and thank you for reading mwah </p>
+    <p class="sign">— From Ahmed that you forgot his name, with a genuine apology.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cover = document.getElementById('cover');
+  var msg = document.getElementById('message');
+  document.getElementById('open').addEventListener('click', function(){
+    cover.classList.add('out');
+    setTimeout(function(){
+      cover.style.display = 'none';
+      msg.classList.add('show');
+      window.scrollTo(0,0);
+    }, 600);
+  });
+})();
+</script>
+</body>
+</html>
